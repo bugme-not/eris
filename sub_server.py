@@ -29,7 +29,14 @@ def generate_subscription(host_header):
         f"&host={run_app_host}&sni={SNI_HOST}#vless-ws"
     )
 
-    raw_payload = f"{vless_link}\n{EXACT_SSH_LINK}\n"
+    trojan_link = (
+        f"trojan://Cxlvin777@{SNI_HOST}:{TARGET_PORT}"
+        f"?type=ws&headerType=none"
+        f"&path=%2FCxlvinTRWS%3Fed%3D2560&security=tls"
+        f"&host={run_app_host}&sni={SNI_HOST}#trojan-ws"
+    )
+
+    raw_payload = f"{vless_link}\n{trojan_link}\n{EXACT_SSH_LINK}\n"
     return base64.b64encode(raw_payload.encode('utf-8'))
 
 class SubHandler(BaseHTTPRequestHandler):
