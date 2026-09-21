@@ -35,7 +35,7 @@ jobs:
           platforms: linux/amd64
           push: true
           tags: |
-            ima0hw/eri:latest
-            ima0hw/eri:${{ github.sha }}
+            ima0hw/eris:latest
+            ima0hw/eris:${{ github.sha }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
